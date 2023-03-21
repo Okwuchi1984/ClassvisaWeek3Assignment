@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+    // Week 3 take home assignment.
+
+    let people = [
+  {
+    name: "Eliza",
+    city: "Los Angeles",
+    likes: ["pizza", "karaoke", "improv", "dancing"],
+  },
+  {
+    name: "Shiela",
+    city: "Denver",
+    likes: ["photography", "painting", "movies"],
+  },
+  {
+    name: "Ben",
+    city: "Los Angeles",
+    likes: ["pizza", "karate", "sci-fi", "poetry"],
+  },
+  {
+    name: "Mohammed",
+    city: "Los Angeles",
+    likes: ["sailing", "golf", "kayaking"],
+  },
+  {
+    name: "Yukiko",
+    city: "Tokyo",
+    likes: ["ramen", "karaoke", "jazz", "hamburgers"],
+  },
+  {
+    name: "Chris",
+    city: "Brooklyn",
+    likes: ["pizza", "karaoke", "improv", "cooking"],
+  },
+];
+
+
+// 1. Write two functions.
+
+//A. First, findPerson: Write a function 'findPerson' called with an array of people and a name, it should return a person object that matches
+
+ function findPerson(people, nameToMatch) {
+  //loop through the people
+  for(let i = 0; i < people.length; i++) {
+    let person = people[i];
+    //if person matches name to match
+    if(person.name === nameToMatch){
+      //return
+      return person;
+    }
+  }
+
+  
+ }
+
+// Secondly, write an 'addLike' function
+// addLike function
+ function addLike(person, topic) {
+  let likes = person['likes'];
+  likes.push(topic)
+ }
+
+
+ // B.  Write a function 'addLikeToPerson' using the helper functions above
+ function addLikeToPerson(people, nameToMatch, topic) {
+  //find the person to add the like to
+  let person = findPerson(people, nameToMatch);
+  // add the like to that person
+  addLike(person, topic);
+ }
+
+// 2. Write a function 'countThePeople'with a loop inside a loop
+ function countLikesByTopic(people, topic) {
+  // create a counter and set it to zero
+  let counter = 0;
+  //loop through the collection of people
+  for(let i = 0; i < people.length; i++) {
+  // loop through the collection of likes for that person- people[i]
+    
+    for(let j = 0; j < people[i].likes.length; j++) {
+      if (people[i].likes[j] === topic) //if the like matches the topic, add one to the counter 
+       counter++;
+    }
+  }
+  return counter;// returns the counter
+ }
+
+
+ //3. Write chained if/else if statements to fulfill the following conditions:
+// num < 5 - return Tiny
+// num < 10 - return Small
+// num < 15 - return Medium
+// num < 20 - return Large
+// num >= 20 - return Huge
+
+
+function testSize(num) {
+if(num < 5){
+  return 'Tiny';
+} else if(num < 10){
+  return 'Small';
+} else if(num < 15){
+  return 'Medium';
+} else if(num < 20) {
+  return 'Large';
+} else {
+ return 'Huge';
+  }
+}
+
+testSize(7);
+
+//4. Using the same data below, we want to know how many candy types we have in the inventory. Create a function called addCandyToInventory that takes in:
+
+// the inventory array
+// a new candy object Return an inventory array with the new candy object added to the end. Make sure you return a value.
+
+let inventory = [
+  { candy: "Skittles", inStock: 180, weeklyAverage: 200 },
+  { candy: "M&Ms", inStock: 90, weeklyAverage: 100 },
+  { candy: "Snickers", inStock: 300, weeklyAverage: 170 },
+  { candy: "Starburst", inStock: 150, weeklyAverage: 40 }
+];
+
+// This is the new candy we added to the inventory
+    let newCandy = {
+    candy: "Mars",
+    inStock: 200,
+    weeklyAverage: 10,
+    }
+
+    function addCandyToInventory(inventory){
+      let newCandy = {
+    candy: "Mars",
+    inStock: 200,
+    weeklyAverage: 10,
+    }
+    
+   let NewInventory = inventory.push(newCandy);
+    return NewInventory.length;
+    }
+
+    addCandyToInventory(inventory);
+
+
+  </script>  
+</body>
+</html>
